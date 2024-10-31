@@ -1,0 +1,101 @@
+/* Estilos personalizados */
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #d6d3d32f;
+}
+
+.navbar{
+  background-color: black;
+}
+
+.sectionPrincipal {
+  color: white;
+  background: linear-gradient(to right top, #0000008a, #ea27278a),
+    url(../assets/imgs/productos/Zapatillas.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .tituloPrincipal {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .subtituloPrincipal {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .botonRegistrarse {
+    background-color: #2761f3;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    /* Agregar efecto de botón presionado */
+    transition: transform 0.3s, box-shadow 0.3s;
+    &:hover {
+      background-color: #0639e0;
+      color: black;
+      transform: scale(0.95);
+      
+    }
+  }box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.container-text {
+  background-color: transparent;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    .container-text-h2 {
+      color: black;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}
+
+.card {
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: #8dc8f559;
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(21, 20, 20, 0.3);
+  }
+}
+
+footer {
+  background-color: #ffffff;
+  .text-dark{
+    text-decoration: none;
+    font-size: inherit;
+    color: inherit;
+    .footer-img{
+      &:hover{
+        transform: scale(2);
+        transition: all 0.5s ease;
+      }
+    }
+
+  }
+.list-unstyled{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+}
