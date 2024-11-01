@@ -5,7 +5,7 @@ body {
   background-color: #d6d3d32f;
 }
 
-.navbar{
+.navbar {
   background-color: black;
 }
 
@@ -45,9 +45,36 @@ body {
       background-color: #0639e0;
       color: black;
       transform: scale(0.95);
-      
     }
-  }box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.botones {
+  display: flex;
+  justify-content: space-around;
+}
+
+.boton {
+  border: 1px solid white;
+  box-sizing: content-box;
+  margin-top: 50px;
+  margin-left: 20px;
+  background-color: #1087f5;
+  color: #ffffff;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 60px;
+  /* Agregar efecto de botón presionado */
+  transition: transform 0.3s, box-shadow 0.3s;
+  &:hover {
+    background-color: #290af5;
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
 }
 
 .container-text {
@@ -78,24 +105,26 @@ body {
   }
 }
 
+.formulario-text {
+  text-align: center;
+}
+
 footer {
   background-color: #ffffff;
-  .text-dark{
+  .text-dark {
     text-decoration: none;
     font-size: inherit;
     color: inherit;
-    .footer-img{
-      &:hover{
+    .footer-img {
+      &:hover {
         transform: scale(2);
         transition: all 0.5s ease;
       }
     }
-
   }
-.list-unstyled{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
+  .list-unstyled {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
