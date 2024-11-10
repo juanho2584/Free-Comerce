@@ -48,7 +48,7 @@
             <a class="nav-link active" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
+            <a class="nav-link" href="./pages/Producto.html">Productos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#destacados">Destacados</a>
@@ -91,11 +91,7 @@
     </section>
 
     <!-- Carrusel de imágenes -->
-    <section
-      id="carrusel"
-      class="carousel slide mt-4"
-      data-ride="carousel"
-    >
+    <section id="carrusel" class="carousel slide mt-4" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
@@ -119,7 +115,7 @@
           />
         </div>
       </div>
-      <a
+      <div
         class="carousel-control-prev"
         href="#carouselExampleIndicators"
         role="button"
@@ -127,8 +123,8 @@
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Anterior</span>
-      </a>
-      <a
+      </div>
+      <div
         class="carousel-control-next"
         href="#carouselExampleIndicators"
         role="button"
@@ -136,13 +132,13 @@
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Siguiente</span>
-      </a>
+      </div>
     </section>
 
     <!-- Contenido principal -->
     <main class="container mt-4" id="destacados">
       <!-- Sección de productos destacados -->
-      <div class="container-text" >
+      <div class="container-text">
         <h2 class="container-text-h2">Productos Destacados</h2>
       </div>
       <div class="row" id="product-list">
@@ -155,8 +151,8 @@
             />
             <div class="card-body">
               <h5 class="card-title">Zapatillas Running</h5>
-              <p class="card-text">Marca: New Balance</p>
-              <p class="card-text">Precio: $80.00</p>
+              <p class="card-text garantia">Garantia: 3 años</p>
+              <p class="card-text precio">Precio: $340.000</p>
               <button
                 class="btn btn-primary btn-add-to-cart"
                 data-product-id="1"
@@ -174,9 +170,9 @@
               class="card-img-top"
             />
             <div class="card-body">
-              <h5 class="card-title">Campera Depor</h5>
-              <p class="card-text">Marca:Yankees</p>
-              <p class="card-text">Precio: $120.00</p>
+              <h5 class="card-title">Campera Deportiva</h5>
+              <p class="card-text garantia">Garantia: 1 año</p>
+              <p class="card-text precio">Precio: $120.000</p>
               <button
                 class="btn btn-primary btn-add-to-cart"
                 data-product-id="2"
@@ -195,11 +191,74 @@
             />
             <div class="card-body">
               <h5 class="card-title">Mochila Deportiva</h5>
-              <p class="card-text">Marca: Adidas</p>
-              <p class="card-text">Precio: $40.00</p>
+              <p class="card-text garantia">Garantia: 2 año</p>
+              <p class="card-text precio">Precio: $40.000</p>
               <button
                 class="btn btn-primary btn-add-to-cart"
                 data-product-id="3"
+              >
+                Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img
+              src="./assets/imgs/productos/artilulos_varios.png"
+              alt="Zapatillas Running"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Articulos Varios</h5>
+              <p class="card-text garantia">Garantia: 1 año</p>
+              <p class="card-text precio">Precio: $30.000</p>
+              <button
+                class="btn btn-primary btn-add-to-cart"
+                data-product-id="1"
+              >
+                Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img
+              src="./assets/imgs/productos/medias.png"
+              alt="Zapatillas Running"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Medias</h5>
+              <p class="card-text garantia">Garantia: 2 año</p>
+              <p class="card-text precio">Precio: $30.000</p>
+              <button
+                class="btn btn-primary btn-add-to-cart"
+                data-product-id="1"
+              >
+                Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img
+              src="./assets/imgs/productos/remeras.png"
+              alt="Zapatillas Running"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Remeras</h5>
+              <p class="card-text garantia">Garantia: 2 año</p>
+              <p class="card-text precio">Precio: $60.000</p>
+              <button
+                class="btn btn-primary btn-add-to-cart"
+                data-product-id="1"
               >
                 Añadir al Carrito
               </button>

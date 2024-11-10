@@ -2,7 +2,7 @@
 
 body {
   font-family: "Arial", sans-serif;
-  background-color: #d6d3d32f;
+  /* background-color: #d6d3d32f; */
 }
 
 .navbar {
@@ -94,6 +94,13 @@ body {
       text-align: center;
     }
   }
+}
+
+.garantia{
+  color: rgb(24, 190, 24);
+  width: 120px;
+  background-color: #9b8cfa5a;
+  border-radius: 50px;
 }
 
 .card {
