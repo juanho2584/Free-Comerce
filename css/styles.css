@@ -1,8 +1,10 @@
 /* Estilos personalizados */
 
 body {
-  font-family: "Arial", sans-serif;
-  /* background-color: #d6d3d32f; */
+  font-family: "Overlock SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #9494942f;
 }
 
 .navbar {

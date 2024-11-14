@@ -19,8 +19,11 @@
     <script
       src="https://kit.fontawesome.com/f7fb471b65.js"
       crossorigin="anonymous"
-    ></script>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    ></script>  
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Barra de navegación -->
@@ -48,7 +51,8 @@
             <a class="nav-link active" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./pages/Producto.html">Productos</a>
+            
+            <a class="nav-link" href="./pages/Producto.html"> Productos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#destacados">Destacados</a>
@@ -91,7 +95,8 @@
     </section>
 
     <!-- Carrusel de imágenes -->
-    <section id="carrusel" class="carousel slide mt-4" data-ride="carousel">
+    <section data-aos="fade-up"
+    data-aos-duration="3000"   id="carrusel" class="carousel slide mt-4" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
@@ -136,7 +141,7 @@
     </section>
 
     <!-- Contenido principal -->
-    <main class="container mt-4" id="destacados">
+    <main data-aos="zoom-in-up" class="container mt-4" id="destacados">
       <!-- Sección de productos destacados -->
       <div class="container-text">
         <h2 class="container-text-h2">Productos Destacados</h2>
@@ -273,19 +278,19 @@
       <h2 class="formulario-text">Contacto</h2>
       <form>
         <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" class="form-control" id="name" required />
+          <label for="name"><i class="fa-solid fa-user fa-shake fa-lg" style="color: #ff0000;"></i> Nombre</label>
+          <input type="text" class="form-control" id="name" required  placeholder=" Ingrese su Nombre"/>
         </div>
         <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" required />
+          <label for="email"><i class="fa-solid fa-at fa-shake fa-lg" style="color: #ff0000;"></i> Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" required placeholder="Ingrese su e-mail"/>
         </div>
         <div class="form-group">
-          <label for="message">Mensaje</label>
+          <label for="message"><i class="fa-solid fa-message fa-shake fa-lg" style="color: #ff0000;"></i> Mensaje</label>
           <textarea
             class="form-control"
             id="message"
-            rows="3"
+            rows="3"  
             required
           ></textarea>
         </div>
