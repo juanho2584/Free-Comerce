@@ -21,41 +21,43 @@ addToCartButtons.forEach(function (button) {
   });
 });
 
-// // Consumo de API
-// const URLSERVER = "https://dummyjson.com/products";
 
-// const options = {
-//   method: "GET",
-//   headers: {
-//     accept: "application/json",
-//   },
+
+
+
+// // Función para añadir un producto al carrito
+// const addToCart = (product) => {
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+//   // Verificar si el producto ya está en el carrito
+//   const existingProduct = cart.find((item) => item.id === product.id);
+//   if (existingProduct) {
+//     existingProduct.quantity += 1; // Incrementar cantidad
+//   } else {
+//     cart.push({ ...product, quantity: 1 }); // Agregar nuevo producto con cantidad inicial
+//   }
+  
+//   localStorage.setItem("cart", JSON.stringify(cart)); // Guardar carrito en localStorage
+  
+//   // Actualizar contador del carrito en la barra de navegación
+//   updateCartCount();
 // };
 
-// const renderProducto = (product) => {
-//   let html = `<div class="col-md-4">
-//                 <div class="card mb-4 shadow-sm">              
-//                     <img src="https://dummyjson.com/products/${product.images}" alt="${product.brad}"  class="card-img-top">                    
-//                      <div class="card-body">
-//                         <h5 class="card-title">${product.title}</h5>
-//                             <p class="card-text">Garantia: ${product.warrantyInformation}</p>
-//                             <p class="card-text">Precio: ${product.price}</p>
-//                                 <button class="btn btn-primary btn-add-to-cart" data-product-id="1">Añadir al Carrito
-//                                </button>
-//                         </div>
-//                     </div>
-//                 </div>
-//               `;
-//   return html;
+// // Actualizar el contador de productos en el carrito
+// const updateCartCount = () => {
+//   const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+//   document.getElementById("cart-count").innerText = totalItems;
 // };
 
-// fetch(`${URLSERVER}`, options)
-//   .then((response) => response.json())
-//   .then((response) => {console.log(response);
-//     let productos = response.results;
-//     let divProductos = document.getElementById("product-list");
-//     for (let i = 0; i < 12; i++) {
-//       let html = renderProducto(productos[i]);
-//       divProductos.insertAdjacentHTML("beforeend", html);
-//     }
-//   })
-//   .catch((err) => console.error(err));
+// // Añadir evento al botón "Añadir al Carrito"
+// document.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("btn-add-to-cart")) {
+//     const productId = parseInt(event.target.getAttribute("data-product-id"));
+//     const product = productos.find((item) => item.id === productId);
+//     addToCart(product);
+//   }
+// });
+
+// // Cargar contador al inicio
+// updateCartCount();

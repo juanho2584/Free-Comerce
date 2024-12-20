@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras - Free Commerce</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS personalizado -->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/f7fb471b65.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../assets/imgs/logo/Logo_Freee_Comerce.png"
+          width="30%"
+          alt="logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link active" href="#">Carrito</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Contenido del carrito -->
+    <main class="container mt-4">
+      <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+      <div id="cart-content" class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+      <div class="text-right">
+        <h4 id="total-price">Total: $0.00</h4>
+        <button class="btn btn-success" id="checkout-btn">Proceder al Pago</button>
+      </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-light text-center text-lg-start mt-4">
+      <div class="text-center p-3 bg-dark text-white">
+        © 2024 - Free Commerce - Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y personalizados -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Cargar productos del carrito
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartItems = document.getElementById("cart-items");
+      const totalPriceEl = document.getElementById("total-price");
+
+      let total = 0;
+
+      cart.forEach((product) => {
+        const subtotal = product.price * product.quantity;
+        total += subtotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${product.title}</td>
+          <td>$${product.price}</td>
+          <td>
+            <input
+              type="number"
+              min="1"
+              value="${product.quantity}"
+              class="form-control quantity-input"
+              data-product-id="${product.id}"
+            />
+          </td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td>
+            <button class="btn btn-danger btn-sm remove-btn" data-product-id="${product.id}">
+              Eliminar
+            </button>
+          </td>
+        `;
+        cartItems.appendChild(row);
+      });
+
+      totalPriceEl.innerText = `Total: $${total.toFixed(2)}`;
+
+      // Escuchar cambios en las cantidades
+      document.querySelectorAll(".quantity-input").forEach((input) => {
+        input.addEventListener("change", (event) => {
+          const id = event.target.getAttribute("data-product-id");
+          const newQuantity = parseInt(event.target.value);
+
+          const product = cart.find((item) => item.id === id);
+          if (product) {
+            product.quantity = newQuantity;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            location.reload();
+          }
+        });
+      });
+
+      // Eliminar producto del carrito
+      document.querySelectorAll(".remove-btn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const id = event.target.getAttribute("data-product-id");
+          const newCart = cart.filter((item) => item.id !== id);
+
+          localStorage.setItem("cart", JSON.stringify(newCart));
+          location.reload();
+        });
+      });
+    </script>
+  </body>
+</html>

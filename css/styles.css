@@ -98,13 +98,8 @@ body {
   }
 }
 
-.garantia{
-  color: rgb(24, 190, 24);
-  width: 120px;
-  background-color: #9b8cfa5a;
-  border-radius: 50px;
-}
 
+/* Cards */
 .card {
   transition: all 0.5s ease;
   &:hover {
@@ -112,6 +107,19 @@ body {
     transform: scale(0.95);
     box-shadow: 0 0 10px rgba(21, 20, 20, 0.3);
   }
+}
+.product-image {
+  margin: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.garantia {
+  color: rgb(24, 190, 24);
+  width: 120px;
+  font-size: 14px;
+  background-color: #9b8cfa5a;
+  border-radius: 50px;
 }
 
 .formulario-text {
