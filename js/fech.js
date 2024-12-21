@@ -1,12 +1,16 @@
-// Consumo de Api
+// Consumo de API
 const URLSERVER = "https://dummyjson.com/products";
-
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
   },
 };
+
+// Variables para la paginación
+let currentPage = 1; // Página actual
+const productsPerPage = 12; // Productos por página
+let productos = []; // Lista de productos cargados
 
 // Función para renderizar un producto
 const renderProducto = (product) => {
@@ -26,20 +30,51 @@ const renderProducto = (product) => {
   return html;
 };
 
+// Función para renderizar la página actual
+const renderPage = () => {
+  let divProductos = document.getElementById("product-list");
+  divProductos.innerHTML = ""; // Limpiar productos actuales
 
-// Consumir la API y renderizar productos
+  // Calcular el índice de inicio y fin para los productos en la página actual
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = Math.min(startIndex + productsPerPage, productos.length);
+
+  // Renderizar productos de la página actual
+  for (let i = startIndex; i < endIndex; i++) {
+    let html = renderProducto(productos[i]);
+    divProductos.insertAdjacentHTML("beforeend", html);
+  }
+
+  // Actualizar el estado de los botones de paginación
+  document.getElementById("prev-page").disabled = currentPage === 1;
+  document.getElementById("next-page").disabled = endIndex >= productos.length;
+};
+
+// Funciones para manejar botones de paginación
+const nextPage = () => {
+  if (currentPage * productsPerPage < productos.length) {
+    currentPage++;
+    renderPage();
+  }
+};
+
+const prevPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage();
+  }
+};
+
+// Consumir la API y cargar productos
 fetch(URLSERVER, options)
   .then((response) => response.json())
   .then((response) => {
     console.log(response); // Verificar la estructura de la respuesta
-    let productos = response.products; // Acceder a los productos correctamente
-    let divProductos = document.getElementById("product-list");
-
-    // Renderizar hasta 12 productos o menos si no hay suficientes
-    let limite = Math.min(productos.length, 12);
-    for (let i = 0; i < limite; i++) {
-      let html = renderProducto(productos[i]);
-      divProductos.insertAdjacentHTML("beforeend", html);
-    }
+    productos = response.products; // Guardar los productos en la variable global
+    renderPage(); // Renderizar la primera página
   })
   .catch((err) => console.error("Error al consumir la API:", err));
+
+// Listeners para los botones de paginación
+document.getElementById("prev-page").addEventListener("click", prevPage);
+document.getElementById("next-page").addEventListener("click", nextPage);

@@ -1,26 +1,3 @@
-// let carrito = [];
-// let cartCountElement = document.getElementById("cart-count");
-
-// // Función para añadir productos al carrito
-// function addToCart(productId) {
-//   carrito.push(productId); // Simula añadir el producto al carrito
-//   updateCartCount();
-// }
-
-// // Función para actualizar el número de productos en el carrito
-// function updateCartCount() {
-//   cartCountElement.innerText = carrito.length;
-// }
-
-// // Añadir eventos a los botones de "Añadir al Carrito"
-// let addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
-// addToCartButtons.forEach(function (button) {
-//   button.addEventListener("click", function () {
-//     const productId = this.getAttribute("data-product-id");
-//     addToCart(productId);
-//   });
-// });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const cart = [];
@@ -39,15 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
     cartContainer.classList.remove("active");
   });
 
-
   // Añadir producto al carrito
   productButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      const productCard = button.closest(".card-body");
+      const productCard = button.closest(".card");
       const title = productCard.querySelector(".card-title").innerText;
       const priceText = productCard.querySelector(".precio").innerText;
       const price = parseFloat(priceText.replace(/[^\d.]/g, ""));
-      const imgSrc = productCard.getElementsByClassName(".card-img-top").src;
+      const imgSrc = productCard.querySelector(".card-img-top").src; // Captura el src de la imagen
       const existingProduct = cart.find((item) => item.title === title);
 
       if (existingProduct) {
@@ -73,12 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
         total += item.price * item.quantity;
 
         const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
+        cartItem.classList.add("cart-item", "d-flex", "align-items-center", "mb-2");
         cartItem.innerHTML = `
-
-          <img src="${item.imgSrc}" alt="${item.title}">
-          <div>
-            <span>${item.title}</span>
+          <img src="${item.imgSrc}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+          <div style="flex-grow: 1;">
+            <span style="font-weight: bold;">${item.title}</span><br>
             <span>$${item.price} x ${item.quantity}</span>
           </div>
           <div>
@@ -118,5 +93,3 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCart();
   };
 });
-
-
