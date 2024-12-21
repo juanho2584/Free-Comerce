@@ -63,15 +63,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#formulario">Contacto</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./pages/Carrito.html"
-              >Carrito<span
-                id="cart-count"
-                class="badge badge-pill badge-primary"
-                >0</span
-              ></a
-            >
-          </li>
+          <button id="cart-toggle" class="btn btn-secondary">
+            Carrito <span id="cart-count" class="badge badge-light">0</span>
+          </button>
         </ul>
       </div>
     </nav>
@@ -149,7 +143,7 @@
       <div class="row" id="product-list">
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img
+            <img 
               src="./assets/imgs/productos/zapatillas.png"
               alt="Zapatillas Running"
               class="card-img-top"
@@ -297,6 +291,20 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
+
+<!-- Barra lateral del carrito -->
+<div id="cart-container" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Carrito de Compras</h3>
+    <button id="close-cart" class="btn btn-danger">X</button>
+  </div>
+  <div id="cart-content" class="cart-grid">
+    <p>El carrito está vacío.</p>
+  </div>
+  <div class="cart-footer">
+    <h4>Total: $<span id="cart-total">0.00</span></h4>
+  </div>
+</div>
 
     <!-- Pie de página -->
     <footer class="bg-light text-center text-lg-start mt-4">

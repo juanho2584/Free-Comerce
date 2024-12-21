@@ -17,7 +17,7 @@ const renderProducto = (product) => {
                         <h5 class="card-title">${product.title}</h5>
                         <p class="card-text garantia">${product.warrantyInformation}</p>
                         <p class="card-text">Precio: $${product.price}</p>
-                        <button class="btn btn-primary btn-add-to-cart" data-product-id="${product.id}">
+                        <button onclick="agregarAlCarrito()" class="btn btn-primary btn-add-to-cart" data-product-id="${product.id}">
                             Añadir al Carrito
                         </button>
                     </div>
